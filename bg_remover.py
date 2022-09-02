@@ -1,6 +1,4 @@
-from email.mime import image
 import os
-import sys
 import argparse
 import numpy as np
 from PIL import Image
@@ -14,9 +12,6 @@ from src.models.modnet import MODNet
 
 
 def combined_display(image, matte):
-    # calculate display resolution
-    w, h = image.width, image.height
-
     # obtain predicted foreground
     image = np.asarray(image)
     if len(image.shape) == 2:
@@ -126,6 +121,6 @@ if __name__ == '__main__':
         matte_name = im_name.split('.')[0] + '_matte.png'
         matte = Image.fromarray(((matte * 255).astype('uint8')), mode='L')
         combined = combined_display(image, matte)
-        matte_name = im_name.split('.')[0] + '_processed.png'
-        combined.save(os.path.join(args.output_path, matte_name))
+        image_name = im_name.split('.')[0] + '_processed.png'
+        combined.save(os.path.join(args.output_path, image_name))
         print(im_name +  ' finished. \n')
