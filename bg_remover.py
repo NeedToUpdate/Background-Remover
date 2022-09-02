@@ -72,7 +72,7 @@ if __name__ == '__main__':
 
     # inference images
     im_names = os.listdir(args.input_path)
-    for im_name in im_names:
+    for im_name in [im for im in im_names if im.lower().endswith(('png','webp','jpg','jpeg'))]:
         print('Processing image: {0}'.format(im_name))
 
         # read image
