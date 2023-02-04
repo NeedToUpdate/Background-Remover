@@ -118,7 +118,6 @@ if __name__ == '__main__':
         # resize and save matte
         matte = F.interpolate(matte, size=(im_h, im_w), mode='area')
         matte = matte[0][0].data.cpu().numpy()
-        matte_name = im_name.split('.')[0] + '_matte.png'
         matte = Image.fromarray(((matte * 255).astype('uint8')), mode='L')
         combined = combined_display(image, matte)
         image_name = im_name.split('.')[0] + '_processed.png'
