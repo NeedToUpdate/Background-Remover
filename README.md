@@ -8,6 +8,18 @@
 
 and activate it based on your OS.
 
+for windows:
+
+```
+    ./.venv/Scripts/activate.ps1
+```
+
+for linux:
+
+```
+    source ./.venv//bin/activate
+```
+
 2. Install prerequisites
 
 ```python
